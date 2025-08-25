@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Thạch AI Assistant</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Thạch AI">
+    <meta name="description" content="Comprehensive Vietnamese AI-powered learning platform for content creators and developers">
+    
+    <!-- PWA Icons -->
+    <link rel="apple-touch-icon" href="/generated-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/generated-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/generated-icon.png">
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+      
+      .container {
+        text-align: center;
+        max-width: 800px;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .logo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+      
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #fff, #f0f8ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+      
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 3rem 0;
+      }
+      
+      .feature {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .feature h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #f0f8ff;
+      }
+      
+      .feature p {
+        opacity: 0.8;
+        line-height: 1.6;
+      }
+      
+      .cta {
+        margin-top: 3rem;
+      }
+      
+      .btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+      }
+      
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      .status {
+        margin-top: 2rem;
+        padding: 1rem;
+        background: rgba(34, 197, 94, 0.2);
+        border-radius: 10px;
+        border: 1px solid rgba(34, 197, 94, 0.3);
+      }
+      
+      .voice-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 50px;
+        color: white;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      
+      .voice-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+      }
+      
+      @media (max-width: 768px) {
+        .container {
+          margin: 1rem;
+          padding: 1.5rem;
+        }
+        
+        h1 {
+          font-size: 2rem;
+        }
+        
+        .features {
+          grid-template-columns: 1fr;
+        }
+        
+        .voice-btn {
+          bottom: 10px;
+          right: 10px;
+          padding: 12px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">🤖</div>
+      <h1>Thạch AI Assistant</h1>
+      <p class="subtitle">Nền tảng AI học tập tiếng Việt toàn diện</p>
+      
+      <div class="features">
+        <div class="feature">
+          <h3>🎨 Tạo Nội Dung AI</h3>
+          <p>Tạo video TikTok, bài viết blog, và nội dung sáng tạo với AI tiến tiến</p>
+        </div>
+        
+        <div class="feature">
+          <h3>🛒 Tích Hợp Shopee</h3>
+          <p>Theo dõi giá sản phẩm, phân tích thị trường, và tối ưu hóa bán hàng</p>
+        </div>
+        
+        <div class="feature">
+          <h3>📊 Phân Tích Kinh Doanh</h3>
+          <p>Dashboard thông minh với báo cáo chi tiết và dự đoán xu hướng</p>
+        </div>
+        
+        <div class="feature">
+          <h3>🎤 Xử Lý Giọng Nói</h3>
+          <p>Nhận diện và tổng hợp giọng nói tiếng Việt chất lượng cao</p>
+        </div>
+        
+        <div class="feature">
+          <h3>🌐 Đa Nền Tảng</h3>
+          <p>Tích hợp với Google Assistant, Alexa, Microsoft Bot Framework</p>
+        </div>
+        
+        <div class="feature">
+          <h3>🔒 Bảo Mật Cao</h3>
+          <p>Mã hóa dữ liệu, xác thực hai lớp, và tuân thủ GDPR</p>
+        </div>
+      </div>
+      
+      <div class="status">
+        <strong>✅ Trạng Thái:</strong> Website đã được triển khai thành công
+        <br>
+        <strong>🔧 Backend:</strong> Đang kết nối với API server
+        <br>
+        <strong>📱 PWA:</strong> Sẵn sàng cài đặt trên thiết bị di động
+      </div>
+      
+      <div class="cta">
+        <button class="btn" onclick="showDemo()">
+          🚀 Bắt Đầu Sử Dụng
+        </button>
+      </div>
+    </div>
+
+    <button class="voice-btn" onclick="startVoiceRecognition()">
+      🎤 Điều khiển giọng nói
+    </button>
+
+    <script>
+      // Demo function
+      function showDemo() {
+        alert('ThachAI Assistant đang được triển khai. Các tính năng AI sẽ sớm hoạt động!');
+      }
+
+      // Voice Recognition
+      function startVoiceRecognition() {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (!SpeechRecognition) {
+          alert('Trình duyệt không hỗ trợ nhận diện giọng nói');
+          return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = "vi-VN";
+        recognition.interimResults = false;
+        
+        recognition.onstart = function() {
+          document.querySelector('.voice-btn').textContent = '🎤 Đang nghe...';
+        };
+        
+        recognition.onresult = function(event) {
+          const transcript = event.results[0][0].transcript;
+          alert('Bạn nói: ' + transcript);
+          
+          // Simple voice responses
+          let response = "Xin chào! Tôi là Thạch AI Assistant.";
+          if (transcript.includes('giá')) response = "Tôi có thể giúp bạn theo dõi giá sản phẩm trên Shopee.";
+          if (transcript.includes('video')) response = "Tôi có thể tạo nội dung video TikTok cho bạn.";
+          if (transcript.includes('phân tích')) response = "Dashboard phân tích kinh doanh đang được chuẩn bị.";
+          
+          speak(response);
+        };
+        
+        recognition.onend = function() {
+          document.querySelector('.voice-btn').textContent = '🎤 Điều khiển giọng nói';
+        };
+        
+        recognition.onerror = function(event) {
+          alert('Lỗi nhận diện giọng nói: ' + event.error);
+          document.querySelector('.voice-btn').textContent = '🎤 Điều khiển giọng nói';
+        };
+        
+        recognition.start();
+      }
+      
+      function speak(text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "vi-VN";
+        window.speechSynthesis.speak(utterance);
+      }
+
+      // PWA Service Worker Registration
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => console.log('Service Worker registered'))
+            .catch(error => console.log('Service Worker registration failed'));
+        });
+      }
+    </script>
+  </body>
+</html>
