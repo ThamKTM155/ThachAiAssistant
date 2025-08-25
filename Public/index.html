@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <title>Thạch AI Assistant</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Thạch AI">
+    <meta name="description" content="Comprehensive Vietnamese AI-powered learning platform for content creators and developers">
+    
+    <!-- PWA Icons -->
+    <link rel="apple-touch-icon" href="/generated-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/generated-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/generated-icon.png">
+    
+    <!-- PWA Manifest -->
+    <script>
+      // PWA Manifest as inline JSON for immediate availability
+      const manifest = {
+        "name": "Thạch AI Assistant - Vietnamese Learning Platform",
+        "short_name": "Thạch AI",
+        "description": "Comprehensive Vietnamese AI-powered learning platform for content creators and developers",
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#3b82f6",
+        "orientation": "portrait-primary",
+        "categories": ["education", "productivity", "developer"],
+        "lang": "vi",
+        "icons": [
+          {
+            "src": "/generated-icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "/generated-icon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+          }
+        ],
+        "features": [
+          "AI-powered content generation",
+          "Community discussions",
+          "Interactive learning platform",
+          "YouTube creator tools",
+          "Portfolio showcase",
+          "Mentorship system"
+        ]
+      };
+      
+      // Create manifest blob and register
+      const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+      const manifestURL = URL.createObjectURL(manifestBlob);
+      const link = document.createElement('link');
+      link.rel = 'manifest';
+      link.href = manifestURL;
+      document.head.appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 🎤 Giao diện điều khiển giọng nói -->
+    <button onclick="startListening()">🎤 Ghi âm</button>
+    <p id="transcript">Bạn nói: ...</p>
+    <audio id="voiceReply" autoplay></audio>
+
+    <!-- 🌐 Script chính để hiển thị giao diện React -->
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- 🧠 Script xử lý giọng nói -->
+    <script>
+      const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang = "vi-VN";
+      recognition.interimResults = false;
+
+      function startListening() {
+        recognition.start();
+      }
+
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById("transcript").innerText =
+          "Bạn nói: " + transcript;
+
+        // Đây là nơi gửi transcript đến server hoặc AI nếu muốn
+
+        const replyFromAI = "Chào bạn! Tôi là Thạch AI.";
+        speak(replyFromAI);
+      };
+
+      function speak(text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "vi-VN";
+        window.speechSynthesis.speak(utterance);
+      }
+    </script>
+
+    <!-- 🧪 Script banner của Replit (giữ nguyên) -->
+    <script
+      type="text/javascript"
+      src="https://replit.com/public/js/replit-dev-banner.js"
+    ></script>
+  </body>
+</html>
